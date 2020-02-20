@@ -5,6 +5,8 @@ aptInstall()
 setAliases()
 setupGo()
 subdomainTools()
+direnumTools()
+
 
 aptInstall(){
 echo "Apt Getting and Installing......."
@@ -17,6 +19,7 @@ echo "Setting Aliases......."
 mv ./bash_aliases > ~/.bash_aliases;
 source ~/.bash_aliases;
 mv ./bashrc ../.bashrc
+source ~/.bashrc
 }
 
 setupGo(){
@@ -43,10 +46,8 @@ wget https://gist.githubusercontent.com/mhmdiaa/2742c5e147d49a804b408bfed3d32d07
 git clone https://github.com/FortyNorthSecurity/EyeWitness.git /opt/eyewitness
 }
 
-
-
-
+direnumTools(){
 echo "Cloning Dirsearch"
-
 git clone https://github.com/maurosoria/dirsearch.git /opt/dirsearch;
 ln -s /opt/dirsearch/dirsearch /usr/local/sbin/dirsearch;
+}

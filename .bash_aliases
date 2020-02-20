@@ -26,5 +26,3 @@ cat ./$1/* | sort -u | httprobe >> ./$1/domains.txt;
 rm ./$1/crtsh.txt ./$1/assetfinder.txt ./$1/amass.txt ./$1/subfinder.txt;
 #python3 /opt/EyeWitness/EyeWitness.py -f ./domains.txt --web
 }
-
-
