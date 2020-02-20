@@ -662,9 +662,9 @@ function __setprompt
 	local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
 	local SSH2_IP=`echo $SSH2_CLIENT | awk '{ print $1 }'`
 	if [ $SSH2_IP ] || [ $SSH_IP ] ; then
-		PS1+="(\[${RED}\]\u@\h"
+		PS1+="(\[${LIGHTCYAN}\]\u@\h"
 	else
-		PS1+="(\[${RED}\]\u"
+		PS1+="(\[${LIGHTCYAN}\]\u"
 	fi
 
 	# Current directory
