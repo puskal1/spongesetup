@@ -1,13 +1,5 @@
 #!/bin/bash
 
-
-aptInstall()
-setAliases()
-setupGo()
-subdomainTools()
-direnumTools()
-
-
 aptInstall(){
 echo "Apt Getting and Installing......."
 apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y;
@@ -18,8 +10,8 @@ setAliases(){
 echo "Setting Aliases......."
 mv ./bash_aliases > ~/.bash_aliases;
 source ~/.bash_aliases;
-mv ./bashrc ../.bashrc
-source ~/.bashrc
+mv ~/spongesetup/.bashrc ~/.bashrc;
+source ~/.bashrc;
 }
 
 setupGo(){
@@ -27,11 +19,11 @@ echo "Setting up go......."
 wget https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz
 tar -xvf go1.13.8.linux-amd64.tar.gz
 mv go /usr/local;
-cat << EOF >> ~/.bashrc
-export GOROOT=/usr/local/go
-export GOPATH=\$HOME/go
-export PATH=\$GOPATH/bin:\$GOROOT/bin:\$PATH
-EOF
+#cat << EOF >> ~/.bashrc
+#export GOROOT=/usr/local/go
+#export GOPATH=\$HOME/go
+#export PATH=\$GOPATH/bin:\$GOROOT/bin:\$PATH
+#EOF
 mkdir /root/go/bin;
 }
 
@@ -51,3 +43,9 @@ echo "Cloning Dirsearch"
 git clone https://github.com/maurosoria/dirsearch.git /opt/dirsearch;
 ln -s /opt/dirsearch/dirsearch /usr/local/sbin/dirsearch;
 }
+
+aptInstall;
+setAliases;
+setupGo;
+subdomainTools;
+direnumTools;
