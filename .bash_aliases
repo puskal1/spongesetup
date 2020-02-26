@@ -1,3 +1,20 @@
+#------- TLD Lookup -------
+
+bgp(){
+  #With results from https://bgp.he.net/search?search%5Bsearch%5D=yahoo&commit=Search
+  expand $1 | cut -d " " -f1 | sed 's/AS//g'
+  echo ""
+  echo ""
+  lined=`expand $1 | cut -d " " -f1 | sed 's/AS//g'| tr '\n' ','`
+  echo "amass intel -asn $lined"
+  echo "for i in $(cat yahoobgp); do echo""; echo "ASN $i";echo ""; amass intel -asn $i;echo ""; done"
+}
+
+asnlookup(){
+
+echo "lol"
+}
+
 #------- Sub Domain Scraping -------
 
 crtsh(){
@@ -24,7 +41,6 @@ amass-init $1 | tee ./$1/assetfinder.txt;
 subfinder-init $1 | tee ./$1/subfinder.txt;
 cat ./$1/* | sort -u | httprobe >> ./$1/domains.txt;
 rm ./$1/crtsh.txt ./$1/assetfinder.txt ./$1/amass.txt ./$1/subfinder.txt;
-#python3 /opt/EyeWitness/EyeWitness.py -f ./domains.txt --web
 }
 
 #------- Content Discovery -------
@@ -33,7 +49,7 @@ arjun-init(){
 arjun -u "$1" --get -f ~/bugBountys/wordlists/web/parameters/parameters.txt -t 50 -o ./arjun.txt
 }
 
-fuff-init(){
+fuff-recursive(){
 fuff -recursion -u $1/FUZZ -w ~/wordlists/
 }
 
@@ -50,7 +66,7 @@ fuff -recursion -u $1/FUZZ -w ~/wordlists/
 #dirsearch -u $1 -b -e json -t 50 --wordlist=/home/nulinc/bugBountys/wordlists/web/content_discovery_all.txt -r --plain-text-report=dirsearch-all.txt
 #}
 
-waybacurl-init(){
+waybackurl-init(){
 cat $1 | waybackurls
 }
 
@@ -198,4 +214,9 @@ echo " composer.json"
 echo "https://github.com/search?q=%22$1%22+composer.json&type=Code"
 echo "https://github.com/search?q=%22$without_suffix%22+composer.json&type=Code"
 echo ""
+}
+
+profile(){
+vim ~/.bash_aliases
+source ~/.bash_aliases
 }
