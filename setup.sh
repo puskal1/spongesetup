@@ -3,7 +3,7 @@
 aptInstall(){
 echo "Updating Repos.......";
 apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y;
-echo "Installing Required Packages"
+echo "Installing Required Packages";
 apt-get install jq nmap ruby-full ruby-bundler python3-pip curl git libcurl4-openssl-dev make zlib1g-dev gawk g++ gcc libreadline6-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 autoconf libgdbm-dev libncurses5-dev automake libtool bison pkg-config ruby ruby-dev -y;
 mkdir ~/bugbounties;
 mv ~/spongesetup/.bash_aliases ~/.bash_aliases;
@@ -14,8 +14,8 @@ mv ~/spongesetup/wordlists ~/wordlists;
 echo "Setting up go......."
 wget https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz;
 tar -xvf go1.13.8.linux-amd64.tar.gz;
-mv go /usr/local;
-mkdir /root/go/bin;
+mv ./go /usr/local;
+mkdir -p /root/go/bin;
 }
 
 domainTools(){
