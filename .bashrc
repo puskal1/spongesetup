@@ -56,7 +56,6 @@ alias spico='sedit'
 alias nano='edit'
 alias snano='sedit'
 alias brc='source ~/.bashrc'
-}
 
 # To have colors for ls and all grep commands such as grep, egrep and zgrep
 export CLICOLOR=1
