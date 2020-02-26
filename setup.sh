@@ -7,7 +7,10 @@ echo "Installing Required Packages"
 apt-get install jq nmap ruby-full ruby-bundler python3-pip curl git libcurl4-openssl-dev make zlib1g-dev gawk g++ gcc libreadline6-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 autoconf libgdbm-dev libncurses5-dev automake libtool bison pkg-config ruby ruby-dev -y;
 mkdir ~/bugbounties;
 mv ~/spongesetup/.bash_aliases ~/.bash_aliases;
+source ~/.bash_aliases;
 mv ~/spongesetup/.bashrc ~/.bashrc;
+source ~/.bashrc;
+mv ~/spongesetup/wordlists ~/wordlists;
 echo "Setting up go......."
 wget https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz;
 tar -xvf go1.13.8.linux-amd64.tar.gz;
@@ -29,7 +32,7 @@ git clone https://github.com/FortyNorthSecurity/EyeWitness.git /opt/eyewitness;
 }
 
 contentDiscoveryTools(){
-go get github.com/ffuf/ffuf
+go get github.com/ffuf/ffuf;
 git clone  https://github.com/s0md3v/Arjun.git /opt/arjun;
 }
 
@@ -43,5 +46,3 @@ gem install wpscan;
 aptInstall;
 domainTools;
 contentDiscoveryTools;
-source ~/.bash_aliases;
-source ~/.bashrc;
