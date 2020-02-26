@@ -1,0 +1,5 @@
+banner FROM v$version
+version FROM v$instance
+@@version
+version()
+@@version
